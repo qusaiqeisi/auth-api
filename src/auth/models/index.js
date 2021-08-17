@@ -1,15 +1,21 @@
 'use strict';
 
-
+require('dotenv').config();
 const { Sequelize, DataTypes } = require('sequelize');
-const DATABASE_URL='postgres://localhost:5432/qusaiqeisi'
+const DATABASE_URL=process.env.DATABASE_URL
 const clothesModel = require('./clothes/model');
 const foodModel = require('./food/model');
 const userModel = require('./users')
 const Collection = require('./data-collection');
-
-
-const sequelize = new Sequelize(DATABASE_URL);
+let sequelizeOptions = {
+  dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      }
+    }
+};
+let sequelize = new Sequelize(POSTGRES_URI,sequelizeOptions);
 const food = foodModel(sequelize, DataTypes);
 const clothes = clothesModel(sequelize, DataTypes);
 
