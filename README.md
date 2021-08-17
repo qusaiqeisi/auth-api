@@ -28,7 +28,7 @@
 - qusai-auth-api --> [repo](https://github.com/qusaiqeisi/auth-api)
 - PR --> [pull requist](https://github.com/qusaiqeisi/auth-api/pull/1)
 - repo action -->[action](https://github.com/qusaiqeisi/auth-api/actions)
-- heruko --> [heruko](https://qusaiqeisi-bearer-auth.herokuapp.com/)
+- heruko --> [heruko](https://qusai-auth-api.herokuapp.com/api/v2/food)
 
 
 ## MUL
