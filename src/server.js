@@ -6,11 +6,11 @@ const cors = require('cors');
 const morgan = require('morgan');
 
 // Esoteric Resources
-const errorHandler = require('./middleware/500');
-const notFound = require('./middleware/404');
-const authRoutes = require('./router/routerauth');
-const apiRoutes = require('./router/v1');
-const apiRoutesV2 = require('./router/v2');
+const errorHandler = require('./error-handlers/500');
+const notFound = require('./error-handlers/404');
+const authRoutes = require('./auth/routes');
+const v1Routes = require('./auth/v1');
+const v2Routes = require('./auth/v2');
 
 // Prepare the express app
 const app = express();
@@ -23,16 +23,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
+app.get('/',(req,res)=>{
+  res.send('hello m3lem 😙')
+})
 app.use(authRoutes);
-app.use('/api/v1',apiRoutes);
-app.use('/api/v2', apiRoutesV2);
-
-app.get('/', (req, res) => {
-  res.send('Home route');
-});
-
+app.use('/api/v1', v1Routes);
+app.use( v2Routes);
 // Catchalls
-app.use('*', notFound);
+app.use(notFound);
 app.use(errorHandler);
 
 module.exports = {
