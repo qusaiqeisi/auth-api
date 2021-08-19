@@ -10,7 +10,7 @@ const Collection = require('./data-collection');
 const DATABASE_URL = process.env.NODE_ENV='test'?'sqlite:memory:':
 'postgres://localhost:5432/lab08'
 
-const sequelize = new Sequelize(DATABASE_URL);
+const sequelize = new Sequelize(DATABASE_URL,{});
 
 
 const food = foodModel(sequelize, DataTypes);

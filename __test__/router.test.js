@@ -1,28 +1,3 @@
-// 'use strict';
-// const {server} = require('../src/server');
-// // I do not have to run it
-// const supertest = require('supertest');
-// const request = supertest(server);
-
-
-
-
-
-
-// //add the name of the module that I am testing 
-// describe('my API Server', ()=> {
-
-//     // add scenarios & test cases 
-//     it('handles 404 on a bad route', async () => {
-       
-//         const response = await request.get('/asd'); // async
-//         expect(response.status).toEqual(404);
-//     });
-
-
-// })
-
-
 'use strict';
 
 process.env.SECRET = "toes";
