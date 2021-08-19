@@ -3,7 +3,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const SECRET = process.env.SECRET || 'secretstring';
+const SECRET = 'secretstring';
 
 const userModel = (sequelize, DataTypes) => {
   const model = sequelize.define('Users', {
